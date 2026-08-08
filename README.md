@@ -12,7 +12,6 @@ InputInExcel là add-in dạng XLL cho Microsoft Excel, hiển thị popup gợi
 - **Từ viết tắt**: tự định nghĩa các từ viết tắt riêng (ví dụ `vt` → `Viettel`), gõ tắt vẫn tìm ra đúng dữ liệu đầy đủ.
 - **Cột ghi tùy chọn**: chọn đúng cột nào cần ghi vào bảng tính, theo đúng thứ tự mong muốn, không bắt buộc ghi toàn bộ dòng dữ liệu nguồn.
 - **Gõ tự do (free-text fallback)**: nếu gõ không khớp dữ liệu nào, vẫn có thể ghi thẳng nội dung vừa gõ (tùy chọn bật/tắt riêng cho từng vùng nhập liệu).
-- **Tự động đăng ký**: không cần `regsvr32`, không cần quyền Admin, không cần cài đặt phức tạp.
 - **Cấu hình linh hoạt**: mỗi vùng nhập liệu (rule) có thể tùy chỉnh: vùng áp dụng, dữ liệu nguồn, cột tìm kiếm, phạm vi tìm kiếm (toàn bộ cột hoặc chỉ cột chính), sự kiện kích hoạt (khi chọn ô / khi nhấp đúp).
 
 ---
