@@ -69,12 +69,6 @@ Trên tab **Home**, nhóm **"Nhập liệu từ danh mục"**:
 
 ---
 
-## Ủng hộ tác giả
-
-Add-in này được phát hành **hoàn toàn miễn phí**. Nếu phần mềm mang lại giá trị cho công việc của bạn, bạn có thể ủng hộ tác giả để góp phần duy trì và phát triển dự án (thông tin chi tiết có sẵn ngay trong Add-in, nút **Ủng hộ** trên Ribbon).
-
----
-
 ## Liên hệ / Hỗ trợ
 
 **Kiều Mạnh**
