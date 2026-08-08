@@ -4,6 +4,10 @@
 
 InputInExcel là add-in dạng XLL cho Microsoft Excel, hiển thị popup gợi ý ngay tại ô đang nhập, giúp bạn chọn nhanh giá trị từ 1 vùng dữ liệu tham chiếu (danh mục sản phẩm, khách hàng, mã hàng...) thay vì gõ tay hoặc dò tìm thủ công.
 
+Khi người dùng gõ ký tự, danh sách sẽ được lọc ngay theo từ khóa. Hỗ trợ chọn bằng chuột hoặc phím mũi tên ↑ ↓, sau đó nhấn Enter để nhập dữ liệu vào ô đang chọn trong Excel.
+
+Không giống các giải pháp sử dụng hộp thoại nhập liệu riêng, Add-in hiển thị popup gợi ý ngay trên ô đang chọn của Excel. Người dùng chỉ cần gõ để tìm, chọn để nhập, mang lại trải nghiệm nhập liệu tự nhiên, nhanh và liền mạch như một phần của Excel.
+
 ---
 
 ## Tính năng
