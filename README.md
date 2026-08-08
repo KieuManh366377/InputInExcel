@@ -77,7 +77,3 @@ Email: kieumanh366377@gmail.com
 Gặp lỗi hoặc có góp ý, vui lòng tạo [Issue](https://github.com/KieuManh366377/InputInExcel/issues) trên GitHub hoặc liên hệ trực tiếp qua thông tin trên.
 
 ---
-
-## Giấy phép
-
-<!-- TODO: điền loại giấy phép bạn muốn phát hành (ví dụ: MIT, GPL-3.0, hoặc giữ bản quyền riêng) -->
