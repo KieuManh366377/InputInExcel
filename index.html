@@ -126,7 +126,12 @@
   }
   .demo-titlebar span{width:9px; height:9px; border-radius:50%; background:var(--grid);}
   .demo-titlebar .fname{margin-left:8px; font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink-soft);}
-  .sheet{padding:0; position:relative;}
+  .sheet{padding:0; position:relative; min-height:220px;}
+  /* min-height du cho .popup (dinh vi tuyet doi, top:96px + toi da 4
+     dong x ~27px) khong bi .demo-card{overflow:hidden} cat mat phan
+     duoi - truoc day .sheet chi cao dung 112px theo dong chay binh
+     thuong (khong tinh .popup vi no bi dua ra khoi dong chay), popup
+     vuot qua 112px la bi che ngay. */
   .colheads, .row{display:grid; grid-template-columns:28px repeat(3, 1fr);}
   .colheads div, .rowhead{
     font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--ink-soft);
