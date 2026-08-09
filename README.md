@@ -13,11 +13,6 @@ Không giống các giải pháp sử dụng hộp thoại nhập liệu riêng,
 ## Ảnh chụp màn hình
 
 <p align="center">
-  <img src="NhapLieu.png" alt="Popup gợi ý nhập liệu ngay tại ô đang chọn" width="850"><br>
-  <sub>Popup gợi ý hiện ngay tại ô đang nhập, lọc theo từ khóa gõ vào</sub>
-</p>
-
-<p align="center">
   <img src="ThietLapVungduLieu.png" alt="Form thiết lập vùng nhập liệu" width="850"><br>
   <sub>Form cấu hình vùng nhập liệu: vùng áp dụng, dữ liệu nguồn, cột tìm kiếm, cột ghi...</sub>
 </p>
@@ -25,6 +20,11 @@ Không giống các giải pháp sử dụng hộp thoại nhập liệu riêng,
 <p align="center">
   <img src="VietTat.png" alt="Sheet cấu hình từ viết tắt" width="850"><br>
   <sub>Tự định nghĩa từ viết tắt riêng, gõ tắt vẫn tìm ra đúng dữ liệu đầy đủ</sub>
+</p>
+
+<p align="center">
+  <img src="NhapLieu.png" alt="Popup gợi ý nhập liệu ngay tại ô đang chọn" width="850"><br>
+  <sub>Popup gợi ý hiện ngay tại ô đang nhập, lọc theo từ khóa gõ vào</sub>
 </p>
 
 ---
