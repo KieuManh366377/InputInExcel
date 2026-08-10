@@ -3,8 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>InputInExcel - Nhập liệu thông minh từ danh mục</title>
-<meta name="description" content="Add-in Excel giúp nhập liệu nhanh và chính xác từ danh mục có sẵn. Gõ để tìm, chọn để nhập.">
+<title id="pageTitle">InputInExcel - Nhập liệu thông minh từ danh mục</title>
+<meta name="description" id="pageDesc" content="Add-in Excel giúp nhập liệu nhanh và chính xác từ danh mục có sẵn. Gõ để tìm, chọn để nhập.">
+<meta property="og:title" content="InputInExcel - Nhập liệu thông minh từ danh mục">
+<meta property="og:description" content="Add-in Excel giúp nhập liệu nhanh và chính xác từ danh mục có sẵn. Gõ để tìm, chọn để nhập.">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -84,6 +87,27 @@
   }
   nav ul a:hover, nav ul a:focus-visible{color:var(--green-deep);}
   .nav-toggle{display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--ink);}
+  .header-controls{display:flex; align-items:center; gap:14px; flex:none;}
+  .lang-switch{
+    display:flex; border:1px solid var(--grid); border-radius:6px; overflow:hidden; flex:none;
+  }
+  .lang-switch button{
+    background:none; border:none; padding:6px 11px; font-size:12px; font-weight:600;
+    color:var(--ink-soft); cursor:pointer; font-family:'IBM Plex Mono', monospace;
+    letter-spacing:.03em;
+  }
+  .lang-switch button.active{background:var(--green-mist); color:var(--green-deep);}
+  .lang-switch button:focus-visible{outline:2px solid var(--green-deep); outline-offset:-2px;}
+  /* ---------- Gioi thieu (nhan manh mo ta) ---------- */
+  .intro-tagline{
+    border-left:3px solid var(--green); padding-left:20px; margin:0 0 26px;
+    font-size:21px; line-height:1.42; font-weight:600; color:var(--ink);
+    max-width:58ch;
+  }
+  .intro-body p{
+    font-size:16.5px; color:var(--ink-soft); max-width:68ch; margin:0 0 16px;
+  }
+  .intro-body p:last-child{margin-bottom:0;}
   /* ---------- Hero ---------- */
   .hero{
     padding:76px 0 64px;
@@ -252,33 +276,40 @@
 <header>
   <div class="nav wrap">
     <div class="brand"><span class="cell"></span> InputInExcel</div>
-    <button class="nav-toggle" id="navToggle" aria-label="Mở menu" aria-expanded="false">&#9776;</button>
     <nav>
       <ul id="navList">
-        <li><a href="#tinh-nang">Tính năng</a></li>
-        <li><a href="#anh-chup">Ảnh chụp</a></li>
-        <li><a href="#cai-dat">Cài đặt</a></li>
-        <li><a href="#video">Video</a></li>
+        <li><a href="#gioi-thieu" data-i18n="nav.gioithieu">Giới thiệu</a></li>
+        <li><a href="#tinh-nang" data-i18n="nav.tinhnang">Tính năng</a></li>
+        <li><a href="#anh-chup" data-i18n="nav.anhchup">Ảnh chụp</a></li>
+        <li><a href="#cai-dat" data-i18n="nav.caidat">Cài đặt</a></li>
+        <li><a href="#video" data-i18n="nav.video">Video</a></li>
       </ul>
     </nav>
+    <div class="header-controls">
+      <div class="lang-switch" role="group" aria-label="Chọn ngôn ngữ / Language">
+        <button type="button" id="btnLangVi" class="active">VI</button>
+        <button type="button" id="btnLangEn">EN</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Mở menu" aria-expanded="false">&#9776;</button>
+    </div>
   </div>
 </header>
 
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow">Add-in Excel · miễn phí</span>
-      <h1>Gõ để tìm, <span class="accent">chọn để nhập</span>.</h1>
-      <p class="lead">InputInExcel hiện popup gợi ý ngay tại ô đang nhập, lọc thông minh trên nhiều cột cùng lúc, giúp bạn nhập liệu từ danh mục có sẵn nhanh và chính xác hơn, không cần gõ tay, không cần dò tìm thủ công.</p>
+      <span class="eyebrow" data-i18n="hero.eyebrow">Add-in Excel · miễn phí</span>
+      <h1 data-i18n-html="hero.title">Gõ để tìm, <span class="accent">chọn để nhập</span>.</h1>
+      <p class="lead" data-i18n="hero.lead">InputInExcel hiện popup gợi ý ngay tại ô đang nhập, lọc thông minh trên nhiều cột cùng lúc, giúp bạn nhập liệu từ danh mục có sẵn nhanh và chính xác hơn, không cần gõ tay, không cần dò tìm thủ công.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://github.com/KieuManh366377/InputInExcel" target="_blank" rel="noopener">Tải xuống trên GitHub</a>
-        <a class="btn btn-ghost" href="#video">Xem video hướng dẫn</a>
+        <a class="btn btn-primary" href="https://github.com/KieuManh366377/InputInExcel" target="_blank" rel="noopener" data-i18n="hero.btnDownload">Tải xuống trên GitHub</a>
+        <a class="btn btn-ghost" href="#video" data-i18n="hero.btnVideo">Xem video hướng dẫn</a>
       </div>
     </div>
     <div class="demo-card fade" aria-hidden="true">
       <div class="demo-titlebar">
         <span></span><span></span><span></span>
-        <span class="fname">DanhMuc.xlsx</span>
+        <span class="fname" id="demoFname">DanhMuc.xlsx</span>
       </div>
       <div class="sheet">
         <div class="colheads">
@@ -286,7 +317,7 @@
         </div>
         <div class="row">
           <div class="rowhead">1</div>
-          <div class="cell">ID</div><div class="cell">Tên hàng</div><div class="cell">Số lượng</div>
+          <div class="cell" data-i18n="demo.colId">ID</div><div class="cell" data-i18n="demo.colName">Tên hàng</div><div class="cell" data-i18n="demo.colQty">Số lượng</div>
         </div>
         <div class="row">
           <div class="rowhead">2</div>
@@ -307,43 +338,55 @@
   </div>
 </section>
 
+<section id="gioi-thieu">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="intro.eyebrow">Giới thiệu</span>
+    <p class="intro-tagline" data-i18n="intro.tagline">Add-in Excel giúp nhập liệu nhanh và chính xác từ danh mục có sẵn. Gõ để tìm, chọn để nhập.</p>
+    <div class="intro-body">
+      <p data-i18n="intro.p1">InputInExcel là add-in dạng XLL cho Microsoft Excel, hiển thị popup gợi ý ngay tại ô đang nhập, giúp bạn nhanh chóng chọn giá trị từ một vùng dữ liệu tham chiếu (danh mục sản phẩm, khách hàng, mã hàng...) thay vì gõ tay hoặc tìm kiếm thủ công.</p>
+      <p data-i18n="intro.p2">Khi người dùng gõ ký tự, danh sách sẽ được lọc ngay theo từ khóa. Hỗ trợ chọn bằng chuột hoặc phím mũi tên lên/xuống, sau đó nhấn Enter để nhập dữ liệu vào ô đang chọn trong Excel.</p>
+      <p data-i18n="intro.p3">Không giống các giải pháp sử dụng hộp thoại nhập liệu riêng, Add-in hiển thị popup gợi ý ngay tại ô đang chọn trong Excel. Người dùng chỉ cần gõ để tìm, chọn để nhập, mang lại trải nghiệm nhập liệu tự nhiên, nhanh và liền mạch như một phần của Excel.</p>
+    </div>
+  </div>
+</section>
+
 <section id="tinh-nang">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">B2 · Tính năng</span>
-      <h2>Nhập liệu thông minh, không phải gõ máy móc</h2>
-      <p>Mỗi tính năng giải quyết đúng 1 việc thường gặp khi nhập dữ liệu vào Excel từ 1 danh mục có sẵn.</p>
+      <span class="eyebrow" data-i18n="feat.eyebrow">B2 · Tính năng</span>
+      <h2 data-i18n="feat.h2">Nhập liệu thông minh, không phải gõ máy móc</h2>
+      <p data-i18n="feat.lead">Mỗi tính năng giải quyết đúng 1 việc thường gặp khi nhập dữ liệu vào Excel từ 1 danh mục có sẵn.</p>
     </div>
     <div class="feat-grid">
       <div class="feat">
         <span class="ref">A1</span>
-        <h3>Lọc thông minh nhiều cột</h3>
-        <p>Gõ vài ký tự, tự động tìm khớp trên nhiều cột cùng lúc, xếp hạng theo mức độ khớp, không cần đúng thứ tự, không cần đúng cột.</p>
+        <h3 data-i18n="feat.a1.h">Lọc thông minh nhiều cột</h3>
+        <p data-i18n="feat.a1.p">Gõ vài ký tự, tự động tìm khớp trên nhiều cột cùng lúc, xếp hạng theo mức độ khớp, không cần đúng thứ tự, không cần đúng cột.</p>
       </div>
       <div class="feat">
         <span class="ref">B1</span>
-        <h3>Từ viết tắt riêng</h3>
-        <p>Tự định nghĩa viết tắt (ví dụ <code>vt</code> → <code>Viettel</code>), gõ tắt vẫn tìm đúng dữ liệu đầy đủ.</p>
+        <h3 data-i18n="feat.b1.h">Từ viết tắt riêng</h3>
+        <p data-i18n-html="feat.b1.p">Tự định nghĩa viết tắt (ví dụ <code>vt</code> → <code>Viettel</code>), gõ tắt vẫn tìm đúng dữ liệu đầy đủ.</p>
       </div>
       <div class="feat">
         <span class="ref">C1</span>
-        <h3>Cột ghi tùy chọn</h3>
-        <p>Chọn đúng cột nào cần ghi vào bảng tính, theo đúng thứ tự mong muốn, không bắt buộc ghi cả dòng dữ liệu nguồn.</p>
+        <h3 data-i18n="feat.c1.h">Cột ghi tùy chọn</h3>
+        <p data-i18n="feat.c1.p">Chọn đúng cột nào cần ghi vào bảng tính, theo đúng thứ tự mong muốn, không bắt buộc ghi cả dòng dữ liệu nguồn.</p>
       </div>
       <div class="feat">
         <span class="ref">A2</span>
-        <h3>Gõ tự do</h3>
-        <p>Gõ không khớp dữ liệu nào vẫn ghi được nguyên văn, có thể bật/tắt riêng cho từng vùng nhập liệu.</p>
+        <h3 data-i18n="feat.a2.h">Gõ tự do</h3>
+        <p data-i18n="feat.a2.p">Gõ không khớp dữ liệu nào vẫn ghi được nguyên văn, có thể bật/tắt riêng cho từng vùng nhập liệu.</p>
       </div>
       <div class="feat">
         <span class="ref">B2</span>
-        <h3>Tự động đăng ký</h3>
-        <p>Không cần <code>regsvr32</code>, không cần quyền quản trị máy, mở file <code>.xll</code> là dùng được ngay.</p>
+        <h3 data-i18n="feat.b2.h">Tự động đăng ký</h3>
+        <p data-i18n-html="feat.b2.p">Không cần <code>regsvr32</code>, không cần quyền quản trị máy, mở file <code>.xll</code> là dùng được ngay.</p>
       </div>
       <div class="feat">
         <span class="ref">C2</span>
-        <h3>Cấu hình linh hoạt</h3>
-        <p>Mỗi vùng nhập liệu tùy chỉnh riêng: vùng áp dụng, dữ liệu nguồn, cột tìm kiếm, sự kiện kích hoạt.</p>
+        <h3 data-i18n="feat.c2.h">Cấu hình linh hoạt</h3>
+        <p data-i18n="feat.c2.p">Mỗi vùng nhập liệu tùy chỉnh riêng: vùng áp dụng, dữ liệu nguồn, cột tìm kiếm, sự kiện kích hoạt.</p>
       </div>
     </div>
   </div>
@@ -352,21 +395,21 @@
 <section id="anh-chup">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Ảnh chụp màn hình</span>
-      <h2>Trông như thế nào khi dùng thật</h2>
+      <span class="eyebrow" data-i18n="shot.eyebrow">Ảnh chụp màn hình</span>
+      <h2 data-i18n="shot.h2">Trông như thế nào khi dùng thật</h2>
     </div>
     <div class="shot-stack">
       <figure class="shot-card">
-        <img src="ThietLapVungduLieu.png" alt="Form thiết lập vùng nhập liệu, gồm vùng áp dụng, dữ liệu nguồn, cột tìm kiếm, cột ghi, gõ tự do" loading="lazy">
-        <figcaption>Form cấu hình vùng nhập liệu: vùng áp dụng, dữ liệu nguồn, cột tìm kiếm, cột ghi, gõ tự do...</figcaption>
+        <img src="ThietLapVungduLieu.png" alt="Form thiết lập vùng nhập liệu, gồm vùng áp dụng, dữ liệu nguồn, cột tìm kiếm, cột ghi, gõ tự do" loading="lazy" data-i18n-alt="shot1.alt">
+        <figcaption data-i18n="shot1.caption">Form cấu hình vùng nhập liệu: vùng áp dụng, dữ liệu nguồn, cột tìm kiếm, cột ghi, gõ tự do...</figcaption>
       </figure>
       <figure class="shot-card">
-        <img src="VietTat.png" alt="Sheet cấu hình danh sách từ viết tắt, ví dụ vt sang Viettel" loading="lazy">
-        <figcaption>Tự định nghĩa từ viết tắt riêng (<code>vt</code> &#8594; Viettel, <code>vn</code> &#8594; Vinaphone...), gõ tắt vẫn tìm ra đúng dữ liệu đầy đủ.</figcaption>
+        <img src="VietTat.png" alt="Sheet cấu hình danh sách từ viết tắt, ví dụ vt sang Viettel" loading="lazy" data-i18n-alt="shot2.alt">
+        <figcaption data-i18n-html="shot2.caption">Tự định nghĩa từ viết tắt riêng (<code>vt</code> &#8594; Viettel, <code>vn</code> &#8594; Vinaphone...), gõ tắt vẫn tìm ra đúng dữ liệu đầy đủ.</figcaption>
       </figure>
       <figure class="shot-card">
-        <img src="NhapLieu.png" alt="Popup gợi ý nhập liệu hiện ngay tại ô đang chọn trong Excel" loading="lazy">
-        <figcaption>Popup gợi ý hiện ngay tại ô đang nhập, lọc theo từ khóa gõ vào.</figcaption>
+        <img src="NhapLieu.png" alt="Popup gợi ý nhập liệu hiện ngay tại ô đang chọn trong Excel" loading="lazy" data-i18n-alt="shot3.alt">
+        <figcaption data-i18n="shot3.caption">Popup gợi ý hiện ngay tại ô đang nhập, lọc theo từ khóa gõ vào.</figcaption>
       </figure>
     </div>
   </div>
@@ -375,64 +418,64 @@
 <section class="alt" id="cai-dat">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Cài đặt</span>
-      <h2>Sẵn sàng dùng sau 5 bước</h2>
+      <span class="eyebrow" data-i18n="install.eyebrow">Cài đặt</span>
+      <h2 data-i18n="install.h2">Sẵn sàng dùng sau 5 bước</h2>
     </div>
     <div class="steps">
       <div class="step">
         <div>
-          <h3>Kiểm tra Excel đang dùng 32-bit hay 64-bit</h3>
-          <p>Mở Excel → <code>File</code> → <code>Account</code> → <code>About Excel</code>, xem dòng đầu tiên.</p>
+          <h3 data-i18n="install.s1.h">Kiểm tra Excel đang dùng 32-bit hay 64-bit</h3>
+          <p data-i18n-html="install.s1.p">Mở Excel → <code>File</code> → <code>Account</code> → <code>About Excel</code>, xem dòng đầu tiên.</p>
         </div>
       </div>
       <div class="step">
         <div>
-          <h3>Tải file <code>.xll</code> đúng phiên bản</h3>
-          <p>Tải tại mục <a href="#tai-github">Tải xuống</a> ở cuối trang, chọn đúng file cho bản Excel của bạn.</p>
+          <h3 data-i18n-html="install.s2.h">Tải file <code>.xll</code> đúng phiên bản</h3>
+          <p data-i18n-html="install.s2.p">Tải tại mục <a href="#tai-github">Tải xuống</a> ở cuối trang, chọn đúng file cho bản Excel của bạn.</p>
         </div>
       </div>
       <div class="step">
         <div>
-          <h3>Mở Add-ins trong Excel</h3>
-          <p><code>File</code> → <code>Options</code> → <code>Add-ins</code> → mục <b>Manage</b> chọn <b>Excel Add-ins</b> → <b>Go...</b></p>
+          <h3 data-i18n="install.s3.h">Mở Add-ins trong Excel</h3>
+          <p data-i18n-html="install.s3.p"><code>File</code> → <code>Options</code> → <code>Add-ins</code> → mục <b>Manage</b> chọn <b>Excel Add-ins</b> → <b>Go...</b></p>
         </div>
       </div>
       <div class="step">
         <div>
-          <h3>Chọn file vừa tải</h3>
-          <p>Bấm <b>Browse...</b>, chọn file <code>.xll</code> → <b>OK</b>.</p>
+          <h3 data-i18n="install.s4.h">Chọn file vừa tải</h3>
+          <p data-i18n-html="install.s4.p">Bấm <b>Browse...</b>, chọn file <code>.xll</code> → <b>OK</b>.</p>
         </div>
       </div>
       <div class="step">
         <div>
-          <h3>Dùng ngay</h3>
-          <p>Add-in tự đăng ký, không cần khởi động lại Excel, không cần quyền quản trị.</p>
+          <h3 data-i18n="install.s5.h">Dùng ngay</h3>
+          <p data-i18n="install.s5.p">Add-in tự đăng ký, không cần khởi động lại Excel, không cần quyền quản trị.</p>
         </div>
       </div>
     </div>
-    <p class="note">Bit của Excel không phụ thuộc bit của Windows, máy Windows 64-bit vẫn có thể đang cài Excel bản 32-bit, nên bước 1 là bước quan trọng nhất.</p>
+    <p class="note" data-i18n="install.note">Bit của Excel không phụ thuộc bit của Windows, máy Windows 64-bit vẫn có thể đang cài Excel bản 32-bit, nên bước 1 là bước quan trọng nhất.</p>
   </div>
 </section>
 
 <section id="video">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Video</span>
-      <h2>Nhập liệu nâng cao cho Excel</h2>
-      <p>Gõ để tìm, chọn để nhập, xem qua trước khi cài.</p>
+      <span class="eyebrow" data-i18n="video.eyebrow">Video</span>
+      <h2 data-i18n="video.h2">Nhập liệu nâng cao cho Excel</h2>
+      <p data-i18n="video.lead">Gõ để tìm, chọn để nhập, xem qua trước khi cài.</p>
     </div>
     <div class="video-box" style="border-style:solid; padding:0;">
-      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/24Jgd6Idih8" title="Nhập liệu nâng cao cho Excel - Gõ để tìm, chọn để nhập" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:var(--radius);"></iframe>
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/24Jgd6Idih8" title="Nhập liệu nâng cao cho Excel - Gõ để tìm, chọn để nhập" id="videoFrame" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:var(--radius);"></iframe>
     </div>
   </div>
 </section>
 
 <section class="alt" id="tai-github">
   <div class="wrap" style="text-align:center;">
-    <span class="eyebrow">Tải xuống</span>
-    <h2 style="margin-bottom:14px;">Toàn bộ file có sẵn trên GitHub</h2>
-    <p style="color:var(--ink-soft); max-width:52ch; margin:0 auto 26px;">File <code>.xll</code> (32-bit và 64-bit) cùng file Excel mẫu đều nằm trong kho lưu trữ GitHub của dự án.</p>
-    <a class="btn btn-primary" href="https://github.com/KieuManh366377/InputInExcel" target="_blank" rel="noopener">Mở GitHub để tải xuống</a>
+    <span class="eyebrow" data-i18n="dl.eyebrow">Tải xuống</span>
+    <h2 style="margin-bottom:14px;" data-i18n="dl.h2">Toàn bộ file có sẵn trên GitHub</h2>
+    <p style="color:var(--ink-soft); max-width:52ch; margin:0 auto 26px;" data-i18n-html="dl.lead">File <code>.xll</code> (32-bit và 64-bit) cùng file Excel mẫu đều nằm trong kho lưu trữ GitHub của dự án.</p>
+    <a class="btn btn-primary" href="https://github.com/KieuManh366377/InputInExcel" target="_blank" rel="noopener" data-i18n="dl.btn">Mở GitHub để tải xuống</a>
   </div>
 </section>
 
@@ -441,12 +484,213 @@
     <div class="meta">© 2026 Kiều Mạnh · InputInExcel</div>
     <div class="meta">
       0929 278 279 · 0929 278 379 · <a href="mailto:kieumanh366377@gmail.com">kieumanh366377@gmail.com</a>
-      · <a href="https://github.com/KieuManh366377/InputInExcel/issues">Báo lỗi / Góp ý</a>
+      · <a href="https://github.com/KieuManh366377/InputInExcel/issues" data-i18n="footer.report">Báo lỗi / Góp ý</a>
     </div>
   </div>
 </footer>
 
 <script>
+  var TRANS = {
+    vi: {
+      'nav.gioithieu': 'Giới thiệu',
+      'nav.tinhnang': 'Tính năng',
+      'nav.anhchup': 'Ảnh chụp',
+      'nav.caidat': 'Cài đặt',
+      'nav.video': 'Video',
+      'nav.openMenu': 'Mở menu',
+      'lang.ariaLabel': 'Chọn ngôn ngữ',
+
+      'hero.eyebrow': 'Add-in Excel · miễn phí',
+      'hero.title': 'Gõ để tìm, <span class="accent">chọn để nhập</span>.',
+      'hero.lead': 'InputInExcel hiện popup gợi ý ngay tại ô đang nhập, lọc thông minh trên nhiều cột cùng lúc, giúp bạn nhập liệu từ danh mục có sẵn nhanh và chính xác hơn, không cần gõ tay, không cần dò tìm thủ công.',
+      'hero.btnDownload': 'Tải xuống trên GitHub',
+      'hero.btnVideo': 'Xem video hướng dẫn',
+      'demo.fname': 'DanhMuc.xlsx',
+      'demo.colId': 'ID',
+      'demo.colName': 'Tên hàng',
+      'demo.colQty': 'Số lượng',
+
+      'intro.eyebrow': 'Giới thiệu',
+      'intro.tagline': 'Add-in Excel giúp nhập liệu nhanh và chính xác từ danh mục có sẵn. Gõ để tìm, chọn để nhập.',
+      'intro.p1': 'InputInExcel là add-in dạng XLL cho Microsoft Excel, hiển thị popup gợi ý ngay tại ô đang nhập, giúp bạn nhanh chóng chọn giá trị từ một vùng dữ liệu tham chiếu (danh mục sản phẩm, khách hàng, mã hàng...) thay vì gõ tay hoặc tìm kiếm thủ công.',
+      'intro.p2': 'Khi người dùng gõ ký tự, danh sách sẽ được lọc ngay theo từ khóa. Hỗ trợ chọn bằng chuột hoặc phím mũi tên lên/xuống, sau đó nhấn Enter để nhập dữ liệu vào ô đang chọn trong Excel.',
+      'intro.p3': 'Không giống các giải pháp sử dụng hộp thoại nhập liệu riêng, Add-in hiển thị popup gợi ý ngay tại ô đang chọn trong Excel. Người dùng chỉ cần gõ để tìm, chọn để nhập, mang lại trải nghiệm nhập liệu tự nhiên, nhanh và liền mạch như một phần của Excel.',
+
+      'feat.eyebrow': 'B2 · Tính năng',
+      'feat.h2': 'Nhập liệu thông minh, không phải gõ máy móc',
+      'feat.lead': 'Mỗi tính năng giải quyết đúng 1 việc thường gặp khi nhập dữ liệu vào Excel từ 1 danh mục có sẵn.',
+      'feat.a1.h': 'Lọc thông minh nhiều cột',
+      'feat.a1.p': 'Gõ vài ký tự, tự động tìm khớp trên nhiều cột cùng lúc, xếp hạng theo mức độ khớp, không cần đúng thứ tự, không cần đúng cột.',
+      'feat.b1.h': 'Từ viết tắt riêng',
+      'feat.b1.p': 'Tự định nghĩa viết tắt (ví dụ <code>vt</code> &#8594; <code>Viettel</code>), gõ tắt vẫn tìm đúng dữ liệu đầy đủ.',
+      'feat.c1.h': 'Cột ghi tùy chọn',
+      'feat.c1.p': 'Chọn đúng cột nào cần ghi vào bảng tính, theo đúng thứ tự mong muốn, không bắt buộc ghi cả dòng dữ liệu nguồn.',
+      'feat.a2.h': 'Gõ tự do',
+      'feat.a2.p': 'Gõ không khớp dữ liệu nào vẫn ghi được nguyên văn, có thể bật/tắt riêng cho từng vùng nhập liệu.',
+      'feat.b2.h': 'Tự động đăng ký',
+      'feat.b2.p': 'Không cần <code>regsvr32</code>, không cần quyền quản trị máy, mở file <code>.xll</code> là dùng được ngay.',
+      'feat.c2.h': 'Cấu hình linh hoạt',
+      'feat.c2.p': 'Mỗi vùng nhập liệu tùy chỉnh riêng: vùng áp dụng, dữ liệu nguồn, cột tìm kiếm, sự kiện kích hoạt.',
+
+      'shot.eyebrow': 'Ảnh chụp màn hình',
+      'shot.h2': 'Trông như thế nào khi dùng thật',
+      'shot1.alt': 'Form thiết lập vùng nhập liệu, gồm vùng áp dụng, dữ liệu nguồn, cột tìm kiếm, cột ghi, gõ tự do',
+      'shot1.caption': 'Form cấu hình vùng nhập liệu: vùng áp dụng, dữ liệu nguồn, cột tìm kiếm, cột ghi, gõ tự do...',
+      'shot2.alt': 'Sheet cấu hình danh sách từ viết tắt, ví dụ vt sang Viettel',
+      'shot2.caption': 'Tự định nghĩa từ viết tắt riêng (<code>vt</code> &#8594; Viettel, <code>vn</code> &#8594; Vinaphone...), gõ tắt vẫn tìm ra đúng dữ liệu đầy đủ.',
+      'shot3.alt': 'Popup gợi ý nhập liệu hiện ngay tại ô đang chọn trong Excel',
+      'shot3.caption': 'Popup gợi ý hiện ngay tại ô đang nhập, lọc theo từ khóa gõ vào.',
+
+      'install.eyebrow': 'Cài đặt',
+      'install.h2': 'Sẵn sàng dùng sau 5 bước',
+      'install.s1.h': 'Kiểm tra Excel đang dùng 32-bit hay 64-bit',
+      'install.s1.p': 'Mở Excel &#8594; <code>File</code> &#8594; <code>Account</code> &#8594; <code>About Excel</code>, xem dòng đầu tiên.',
+      'install.s2.h': 'Tải file <code>.xll</code> đúng phiên bản',
+      'install.s2.p': 'Tải tại mục <a href="#tai-github">Tải xuống</a> ở cuối trang, chọn đúng file cho bản Excel của bạn.',
+      'install.s3.h': 'Mở Add-ins trong Excel',
+      'install.s3.p': '<code>File</code> &#8594; <code>Options</code> &#8594; <code>Add-ins</code> &#8594; mục <b>Manage</b> chọn <b>Excel Add-ins</b> &#8594; <b>Go...</b>',
+      'install.s4.h': 'Chọn file vừa tải',
+      'install.s4.p': 'Bấm <b>Browse...</b>, chọn file <code>.xll</code> &#8594; <b>OK</b>.',
+      'install.s5.h': 'Dùng ngay',
+      'install.s5.p': 'Add-in tự đăng ký, không cần khởi động lại Excel, không cần quyền quản trị.',
+      'install.note': 'Bit của Excel không phụ thuộc bit của Windows, máy Windows 64-bit vẫn có thể đang cài Excel bản 32-bit, nên bước 1 là bước quan trọng nhất.',
+
+      'video.eyebrow': 'Video',
+      'video.h2': 'Nhập liệu nâng cao cho Excel',
+      'video.lead': 'Gõ để tìm, chọn để nhập, xem qua trước khi cài.',
+      'video.iframeTitle': 'Nhập liệu nâng cao cho Excel - Gõ để tìm, chọn để nhập',
+
+      'dl.eyebrow': 'Tải xuống',
+      'dl.h2': 'Toàn bộ file có sẵn trên GitHub',
+      'dl.lead': 'File <code>.xll</code> (32-bit và 64-bit) cùng file Excel mẫu đều nằm trong kho lưu trữ GitHub của dự án.',
+      'dl.btn': 'Mở GitHub để tải xuống',
+
+      'footer.report': 'Báo lỗi / Góp ý',
+
+      'page.title': 'InputInExcel - Nhập liệu thông minh từ danh mục',
+      'page.desc': 'Add-in Excel giúp nhập liệu nhanh và chính xác từ danh mục có sẵn. Gõ để tìm, chọn để nhập.'
+    },
+    en: {
+      'nav.gioithieu': 'Overview',
+      'nav.tinhnang': 'Features',
+      'nav.anhchup': 'Screenshots',
+      'nav.caidat': 'Install',
+      'nav.video': 'Video',
+      'nav.openMenu': 'Open menu',
+      'lang.ariaLabel': 'Select language',
+
+      'hero.eyebrow': 'Excel add-in · free',
+      'hero.title': 'Type to search, <span class="accent">select to fill</span>.',
+      'hero.lead': 'InputInExcel shows a suggestion popup right at the cell you are editing, with smart multi-column filtering, so you can fill in data from a reference list faster and more accurately, no more typing by hand or searching manually.',
+      'hero.btnDownload': 'Download on GitHub',
+      'hero.btnVideo': 'Watch the demo video',
+      'demo.fname': 'Catalog.xlsx',
+      'demo.colId': 'ID',
+      'demo.colName': 'Product',
+      'demo.colQty': 'Quantity',
+
+      'intro.eyebrow': 'Overview',
+      'intro.tagline': 'An Excel add-in for fast, accurate data entry from any reference list. Type to search, select to fill.',
+      'intro.p1': 'InputInExcel is an XLL add-in for Microsoft Excel. It shows a suggestion popup right at the cell you are editing, helping you quickly pick a value from a reference range (a product catalog, customer list, item codes...) instead of typing it out or searching manually.',
+      'intro.p2': 'As you type, the list filters instantly to match your keywords. Pick a result with the mouse or the up/down arrow keys, then press Enter to fill the selected Excel cell.',
+      'intro.p3': 'Unlike solutions that rely on a separate input dialog, the add-in shows its suggestion popup right where you are working in Excel. Type to search, select to fill, for a data-entry experience that feels natural, fast, and native to Excel.',
+
+      'feat.eyebrow': 'B2 · Features',
+      'feat.h2': 'Smart data entry, not mechanical typing',
+      'feat.lead': 'Each feature solves one common problem when entering data into Excel from a reference list.',
+      'feat.a1.h': 'Smart multi-column filter',
+      'feat.a1.p': 'Type a few characters and it matches across multiple columns at once, ranked by relevance, no matter the column or word order.',
+      'feat.b1.h': 'Custom abbreviations',
+      'feat.b1.p': 'Define your own shorthand (e.g. <code>vt</code> &#8594; <code>Viettel</code>), typing the abbreviation still finds the full data.',
+      'feat.c1.h': 'Optional write columns',
+      'feat.c1.p': 'Choose exactly which columns get written, in the order you want, no need to write the entire source row.',
+      'feat.a2.h': 'Free-text fallback',
+      'feat.a2.p': 'If nothing matches what you typed, it can still write the typed text as-is, toggleable per input rule.',
+      'feat.b2.h': 'Self-registering',
+      'feat.b2.p': 'No <code>regsvr32</code>, no admin rights needed, opening the <code>.xll</code> file is enough to use it right away.',
+      'feat.c2.h': 'Flexible configuration',
+      'feat.c2.p': 'Each input rule is configured independently: target range, source data, search column, trigger event.',
+
+      'shot.eyebrow': 'Screenshots',
+      'shot.h2': 'What it looks like in practice',
+      'shot1.alt': 'Input rule setup form, with target range, source data, search column, write columns, free text option',
+      'shot1.caption': 'The rule setup form: target range, source data, search column, write columns, free-text toggle...',
+      'shot2.alt': 'Abbreviation configuration sheet, for example vt mapped to Viettel',
+      'shot2.caption': 'Define your own abbreviations (<code>vt</code> &#8594; Viettel, <code>vn</code> &#8594; Vinaphone...), typing the shorthand still finds the right data.',
+      'shot3.alt': 'Suggestion popup shown right at the active cell in Excel',
+      'shot3.caption': 'The suggestion popup appears right at the cell you are editing, filtered as you type.',
+
+      'install.eyebrow': 'Installation',
+      'install.h2': 'Ready to use in 5 steps',
+      'install.s1.h': 'Check whether your Excel is 32-bit or 64-bit',
+      'install.s1.p': 'Open Excel &#8594; <code>File</code> &#8594; <code>Account</code> &#8594; <code>About Excel</code>, the first line will say which.',
+      'install.s2.h': 'Download the matching <code>.xll</code> file',
+      'install.s2.p': 'Get it from the <a href="#tai-github">Download</a> section at the bottom of the page, pick the file matching your Excel edition.',
+      'install.s3.h': 'Open Add-ins in Excel',
+      'install.s3.p': '<code>File</code> &#8594; <code>Options</code> &#8594; <code>Add-ins</code> &#8594; under <b>Manage</b> choose <b>Excel Add-ins</b> &#8594; <b>Go...</b>',
+      'install.s4.h': 'Select the downloaded file',
+      'install.s4.p': 'Click <b>Browse...</b>, select the <code>.xll</code> file &#8594; <b>OK</b>.',
+      'install.s5.h': 'Start using it',
+      'install.s5.p': 'The add-in registers itself, no Excel restart needed, no admin rights required.',
+      'install.note': 'Excel bitness does not depend on Windows bitness, a 64-bit Windows machine may still have 32-bit Excel installed, which is why step 1 matters most.',
+
+      'video.eyebrow': 'Video',
+      'video.h2': 'Advanced data entry for Excel',
+      'video.lead': 'Type to search, select to fill, see it in action before installing. (Narrated in Vietnamese.)',
+      'video.iframeTitle': 'Advanced data entry for Excel - Type to search, select to fill',
+
+      'dl.eyebrow': 'Download',
+      'dl.h2': 'Everything is on GitHub',
+      'dl.lead': 'The <code>.xll</code> files (32-bit and 64-bit) and the sample Excel workbook are all in the project GitHub repository.',
+      'dl.btn': 'Open GitHub to download',
+
+      'footer.report': 'Report an issue',
+
+      'page.title': 'InputInExcel - Smart data entry for Excel',
+      'page.desc': 'An Excel add-in for fast, accurate data entry from any reference list. Type to search, select to fill.'
+    }
+  };
+
+  var currentLang = 'vi';
+
+  function apDungNgonNgu(lang){
+    var dict = TRANS[lang];
+    if (!dict) return;
+    currentLang = lang;
+    document.documentElement.setAttribute('lang', lang);
+
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.textContent = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+      var key = el.getAttribute('data-i18n-html');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-alt]').forEach(function(el){
+      var key = el.getAttribute('data-i18n-alt');
+      if (dict[key] !== undefined) el.alt = dict[key];
+    });
+
+    var demoFname = document.getElementById('demoFname');
+    if (demoFname) demoFname.textContent = dict['demo.fname'];
+    var videoFrame = document.getElementById('videoFrame');
+    if (videoFrame) videoFrame.setAttribute('title', dict['video.iframeTitle']);
+    navToggle.setAttribute('aria-label', dict['nav.openMenu']);
+
+    var pageTitle = document.getElementById('pageTitle');
+    if (pageTitle) pageTitle.textContent = dict['page.title'];
+    var pageDesc = document.getElementById('pageDesc');
+    if (pageDesc) pageDesc.setAttribute('content', dict['page.desc']);
+
+    btnLangVi.classList.toggle('active', lang === 'vi');
+    btnLangEn.classList.toggle('active', lang === 'en');
+    try { localStorage.setItem('inputinexcel_lang', lang); } catch(e){}
+
+    // Ve lai demo popup theo dung ngon ngu vua chon.
+    apDungKichBan(kichBanTheoNgonNgu()[kichBanIdx]);
+  }
+
   // Menu mobile
   var navToggle = document.getElementById('navToggle');
   var navList = document.getElementById('navList');
@@ -455,44 +699,78 @@
     navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 
+  // Nut chuyen ngon ngu
+  var btnLangVi = document.getElementById('btnLangVi');
+  var btnLangEn = document.getElementById('btnLangEn');
+  btnLangVi.addEventListener('click', function(){ apDungNgonNgu('vi'); });
+  btnLangEn.addEventListener('click', function(){ apDungNgonNgu('en'); });
+
   // Demo mini popup - doi kich ban go moi 2.6s, minh hoa dung tinh nang loc thong minh.
+  // Ten bien/ham cu vi tri, mo rong them ho tro song ngu.
+  var kichBanVi = [
+    { go: 'vt', dong: ['<b>Vt</b>tel 10', '<b>Vt</b>tel 20', 'VTC - VCOIN 20'] },
+    { go: 'vt10', dong: ['<b>Vt</b>tel <b>10</b>', 'Sim <b>Vt</b> <b>10</b> Số'] },
+    { go: '999', dong: ['<i>Không khớp - ghi nguyên văn</i>'] }
+  ];
+  var kichBanEn = [
+    { go: 'vt', dong: ['<b>Vt</b>tel 10', '<b>Vt</b>tel 20', 'VTC - VCOIN 20'] },
+    { go: 'vt10', dong: ['<b>Vt</b>tel <b>10</b>', '<b>Vt</b> SIM <b>10</b>'] },
+    { go: '999', dong: ['<i>No match - typed text is used</i>'] }
+  ];
+  function kichBanTheoNgonNgu(){
+    return currentLang === 'en' ? kichBanEn : kichBanVi;
+  }
+
+  var kichBanIdx = 0;
+  var popupInput = document.getElementById('popupInput');
+  var popup = document.getElementById('popupDemo');
+  var activeCell = document.getElementById('activeCell');
+
+  function apDungKichBan(kb){
+    if (!kb) return;
+    popupInput.innerHTML = kb.go + '<span class="cursor"></span>';
+    activeCell.textContent = kb.go;
+    var optEls = popup.querySelectorAll('.opt');
+    optEls.forEach(function(el, i){
+      if (kb.dong[i] !== undefined) {
+        el.style.display = '';
+        el.innerHTML = kb.dong[i];
+        el.className = 'opt' + (i === 0 ? ' sel' : '');
+      } else {
+        el.style.display = 'none';
+      }
+    });
+  }
+
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduceMotion) {
-    var kichBan = [
-      { go: 'vt', dong: ['<b>Vt</b>tel 10', '<b>Vt</b>tel 20', 'VTC - VCOIN 20'] },
-      { go: 'vt10', dong: ['<b>Vt</b>tel <b>10</b>', 'Sim <b>Vt</b> <b>10</b> Số'] },
-      { go: '999', dong: ['<i>Không khớp - ghi nguyên văn</i>'] }
-    ];
-    var idx = 0;
-    var popupInput = document.getElementById('popupInput');
-    var popup = document.getElementById('popupDemo');
-    var activeCell = document.getElementById('activeCell');
-
-    function apDungKichBan(kb){
-      popupInput.innerHTML = kb.go + '<span class="cursor"></span>';
-      activeCell.textContent = kb.go;
-      var optEls = popup.querySelectorAll('.opt');
-      optEls.forEach(function(el, i){
-        if (kb.dong[i] !== undefined) {
-          el.style.display = '';
-          el.innerHTML = kb.dong[i];
-          el.className = 'opt' + (i === 0 ? ' sel' : '');
-        } else {
-          el.style.display = 'none';
-        }
-      });
-    }
-    apDungKichBan(kichBan[0]);
-
     setInterval(function(){
-      idx = (idx + 1) % kichBan.length;
+      kichBanIdx = (kichBanIdx + 1) % kichBanTheoNgonNgu().length;
       var card = document.querySelector('.demo-card');
       card.style.opacity = 0.35;
       setTimeout(function(){
-        apDungKichBan(kichBan[idx]);
+        apDungKichBan(kichBanTheoNgonNgu()[kichBanIdx]);
         card.style.opacity = 1;
       }, 220);
     }, 2600);
+  }
+
+  // Xac dinh ngon ngu ban dau: uu tien lua chon da luu (localStorage),
+  // sau do doan theo ngon ngu trinh duyet, mac dinh Tieng Viet (doi
+  // tuong dung chinh cua add-in).
+  var ngonNguBanDau = 'vi';
+  try {
+    var daLuu = localStorage.getItem('inputinexcel_lang');
+    if (daLuu === 'vi' || daLuu === 'en') {
+      ngonNguBanDau = daLuu;
+    } else if (navigator.language && navigator.language.toLowerCase().indexOf('vi') !== 0) {
+      ngonNguBanDau = 'en';
+    }
+  } catch(e){}
+
+  apDungKichBan(kichBanVi[0]);
+  if (ngonNguBanDau !== 'vi') {
+    apDungNgonNgu(ngonNguBanDau);
   }
 </script>
 
