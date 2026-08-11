@@ -150,7 +150,12 @@
   }
   .demo-titlebar span{width:9px; height:9px; border-radius:50%; background:var(--grid);}
   .demo-titlebar .fname{margin-left:8px; font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink-soft);}
-  .sheet{padding:0; position:relative; min-height:220px;}
+  .sheet{padding:0; position:relative; min-height:300px;}
+  /* Tang tu 220px len 300px (2026-08-xx, theo yeu cau nguoi dung sau
+     khi xem anh chup thuc te - "vt10" van bi che du 220px da tinh du
+     cho truong hop nhieu dong nhat "vt" 3 dong). Them ~80px du (~2cm o
+     man hinh chuan 96dpi) lam khoang an toan rong rai, tranh phai tinh
+     lai chinh xac tung px moi lan doi noi dung demo trong tuong lai. */
   /* min-height du cho .popup (dinh vi tuyet doi, top:96px + toi da 4
      dong x ~27px) khong bi .demo-card{overflow:hidden} cat mat phan
      duoi - truoc day .sheet chi cao dung 112px theo dong chay binh
