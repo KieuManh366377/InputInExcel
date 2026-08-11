@@ -1,5 +1,7 @@
 # InputInExcel
 
+**Trang giới thiệu:** [InputInExcel - Nhập liệu thông minh từ danh mục](https://kieumanh366377.github.io/InputInExcel/)
+
 > **Add-in Excel giúp nhập liệu nhanh và chính xác từ danh mục có sẵn. Gõ để tìm, chọn để nhập.**
 
 InputInExcel là add-in dạng XLL cho Microsoft Excel, hiển thị popup gợi ý ngay tại ô đang nhập, giúp bạn nhanh chóng chọn giá trị từ một vùng dữ liệu tham chiếu (danh mục sản phẩm, khách hàng, mã hàng...) thay vì gõ tay hoặc tìm kiếm thủ công.
@@ -7,25 +9,6 @@ InputInExcel là add-in dạng XLL cho Microsoft Excel, hiển thị popup gợi
 Khi người dùng gõ ký tự, danh sách sẽ được lọc ngay theo từ khóa. Hỗ trợ chọn bằng chuột hoặc phím mũi tên lên/xuống, sau đó nhấn Enter để nhập dữ liệu vào ô đang chọn trong Excel.
 
 Không giống các giải pháp sử dụng hộp thoại nhập liệu riêng, Add-in hiển thị popup gợi ý ngay tại ô đang chọn trong Excel. Người dùng chỉ cần gõ để tìm, chọn để nhập, mang lại trải nghiệm nhập liệu tự nhiên, nhanh và liền mạch như một phần của Excel.
-
----
-
-## Ảnh chụp màn hình
-
-<p align="center">
-  <img src="ThietLapVungduLieu.png" alt="Form thiết lập vùng nhập liệu" width="850"><br>
-  <sub>Form cấu hình vùng nhập liệu: vùng áp dụng, dữ liệu nguồn, cột tìm kiếm, cột ghi...</sub>
-</p>
-
-<p align="center">
-  <img src="VietTat.png" alt="Sheet cấu hình từ viết tắt" width="850"><br>
-  <sub>Tự định nghĩa từ viết tắt riêng, gõ tắt vẫn tìm ra đúng dữ liệu đầy đủ</sub>
-</p>
-
-<p align="center">
-  <img src="NhapLieu.png" alt="Popup gợi ý nhập liệu ngay tại ô đang chọn" width="850"><br>
-  <sub>Popup gợi ý hiện ngay tại ô đang nhập, lọc theo từ khóa gõ vào</sub>
-</p>
 
 ---
 
